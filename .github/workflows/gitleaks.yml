@@ -1,0 +1,19 @@
+name: gitleaks
+
+on:
+   push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: gitleaks-action with defaults
+        uses: zricethezav/gitleaks-action@master
+      - name: gitleaks-action with config
+        uses: zricethezav/gitleaks-action@master
+        with:
+          config-path: .gitleaks.yml
